@@ -15,13 +15,14 @@
 หมายเลข/ชื่อโจทย์ OJ:
 
 ```text
-OJ3011 - Colors
+OJ3025 - Season
+
 ```
 
 OJ submission ID ถ้ามีการส่งแล้ว:
 
 ```text
-545315
+549638
 ```
 
 สถานะ OJ:
@@ -33,7 +34,7 @@ Pass
 เวลาที่ใช้คิดและทำโจทย์ด้วยตนเอง:
 
 ```text
-15-30 minutes
+0-15 minutes
 ```
 
 เลือกหนึ่งข้อ:
@@ -73,10 +74,11 @@ More than 4 weeks
 ถ้ายังไม่เข้าใจโจทย์ทั้งหมด ให้เขียนสิ่งที่เข้าใจในตอนนี้ ความเข้าใจอาจยังไม่ครบหรืออาจผิดได้ แต่ต้องพยายามอธิบายอย่างจริงใจ
 
 ```text
-input1 : สีเเรก
-input2 : สีที่2
-output : สี1-2 ผสมกัน
-constraints : ต้องเป็นเเม่สีเท่านั้น
+input : เดือน
+input 2 : วันที่
+output : ฤดูกาล
+constraints : หาวันที่มากกว่าหรือเท่ากับ 21 เเละเดือนหาร 3 ลงตัว : ฤดูกาล = ฤดูกาลถัดไป
+
 ```
 
 ---
@@ -96,10 +98,9 @@ constraints : ต้องเป็นเเม่สีเท่านั้น
 สามารถเขียนเป็น pseudocode, flowchart idea หรือขั้นตอนความคิดได้
 
 ```text
-Step 1: รับ input สี 1,2
-Step 2: นำสีมาผสมกัน
-Step 3: ถ้าไม่ใช่เเม่สี print "Error"
-Step 4: print output
+Step 1 : รับ input เดือนเเละวันที่
+Step 2 : สร้าง List ของฤดูกาล
+Step 3 : ใช้ condition ตาม constraint
 ```
 
 ---
@@ -119,15 +120,11 @@ Step 4: print output
 ห้ามคัดลอกคำอธิบายจากคนอื่น
 
 ```text
-สร้างตัวเเปลรับค่าสี 2ตัวเเปร จากนั้นสร้าง if else elif เพื่อผสมสี
-หากเป็นเเม่สีทั้งคู่ จะทำมาผสมกันเพื่อได้สีใหม่
-สีเหลือง + เเดง = ส้ม
-เเดง + เหลือง = ส้ม
-หากสีเดียวผสมกัน จะได้สีเดิม
-เหลือง+เหลือง = เหลือง
-หากไม่ใช่เเม่สี จะ error
-เหลือง+ดำ = error
-print output
+คล้ายกับ First Plan โดย
+1.สร้างตัวเเปร month, date เก็บค่า input เดือน เเละ วันที่ เป็นจำนวนเต็ม
+2. สร้าง List ฤดูกาล
+3. ใช้ Condition เพื่อเช็คว่า input อยู่ใน ฤดูกาลไหนที่สร้าง List ไไว้
+4. ใช้ condition ถ้า วัน มากกว่าหรือเท่ากับ 21 เเละเดือนหาร3ลงตัว ฤดูกาลจะเปลี่ยนเป็นฤดูกาลถัดไป
 ```
 
 ---
@@ -147,26 +144,26 @@ print output
 ทำไมเลือก case นี้:
 
 ```text
-input ตัวใหญ่สลับเล็ก เพื่อเช็คว่าจะผสมสีอยู่ไหม
+เพื่อตรวจสอบว่า หากวันที่ =21 เเต่เดือนหาร3ไม่ลงตัว จะได้ผลลัพธ์อย่างไร
 ```
 
 Input:
 
 ```text
-ReD
-YElLOw
+5
+21
 ```
 
 Expected output:
 
 ```text
-Orange
+spring
 ```
 
 Actual output:
 
 ```text
-Orange
+spring
 ```
 
 Result:
@@ -180,26 +177,26 @@ Pass
 ทำไมเลือก case นี้:
 
 ```text
-สีเดียวกันผสมกัน เเต่ตัวอักษรเล็กใหญ่ไม่เท่ากัน
+เพื่อตรวจสอบว่าถ้าเดือนหาร 3ลงตัว เเต่วันที่น้อยกว่า 21 จะได้ผลลัพธ์อย่างไร
 ```
 
 Input:
 
 ```text
-yellow
-YELLOW
+9
+10
 ```
 
 Expected output:
 
 ```text
-Yellow
+summer
 ```
 
 Actual output:
 
 ```text
-Yellow
+summer
 ```
 
 Result:
@@ -213,26 +210,26 @@ Pass
 ทำไมเลือก case นี้:
 
 ```text
-ผสมเเม่สีกับสีอื่น จะได้รู้ว่า errorไหม
+เพื่อตรวจสอบว่า หากเดือนหาร3ลงตัว เเละวันที่ = 21 จะเปลี่ยนฤดูกาลให้หรือไม่
 ```
 
 Input:
 
 ```text
-BLUE
-BLACK
+3
+21
 ```
 
 Expected output:
 
 ```text
-Error
+spring
 ```
 
 Actual output:
 
 ```text
-Error
+spring
 ```
 
 Result:
@@ -297,13 +294,13 @@ No
 เขาช่วยอะไร
 
 ```text
-ไม่มี
+None
 ```
 
 คุณยังทำอะไรด้วยตนเอง
 
 ```text
-ทุกอย่าง
+วางเเผนเอง เเละเขียนโปรเเกรมเองทั้งหมด
 ```
 
 คุณคัดลอก code จากคนอื่นหรือไม่
@@ -320,10 +317,10 @@ No
 
 | Statement | Yes/No |
 |---|---|
-| I wrote this submission in my own words. | Yes|
-| I understand my final code. |Yes |
-| I recorded the real OJ status. |Yes|
+| I wrote this submission in my own words. | Yes |
+| I understand my final code. | Yes |
+| I recorded the real OJ status. |Yes |
 | I did not copy AI-generated text directly into this file. |Yes |
-| I did not copy code from another person. | Yes|
-| If I received human help, I disclosed it in this file. | Yes|
-| I submitted the final code to the OJ by myself. | Yes|
+| I did not copy code from another person. |Yes |
+| If I received human help, I disclosed it in this file. | Yes |
+| I submitted the final code to the OJ by myself. | Yes |
