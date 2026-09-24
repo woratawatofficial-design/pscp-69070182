@@ -1,23 +1,19 @@
 """Electric"""
 def main():
-    """this function calculates the price of electric use"""
-    current = int(input())
+    """this function calculates the price of electricity bill"""
+    current = float(input())
     FT = 0.5*current
-    VAT = 0.07*current
     PRICE = 0
-    if not current:
-        print(PRICE)
-    else:
-        for i in range(1,current+1):
-            if i in range(1,11):
-                PRICE += 5
-            elif i in range(11,51):
-                PRICE += 7
-            elif i in range(51,101):
-                PRICE += 10
-            elif i in range(101,201):
-                PRICE += 12
-            elif i >= 201:
-                PRICE += 15
-        print(PRICE)
+    if 1 <= current <= 10:
+        PRICE += current*5
+    elif 11 <= current <= 50:
+        PRICE += (current-10)*7 + 50
+    elif 51 <= current <= 100:
+        PRICE += (current - 50)*10 + 50 + 280
+    elif 101 <= current <= 200:
+        PRICE += (current - 100)*12 + 50 + 280 + 500
+    elif current >= 201:
+        PRICE += (current - 200)*15 + 50 + 280 + 500 + 1200
+    TOTAL = PRICE*1.07 + FT
+    print(f"{TOTAL:.1f}")
 main()
