@@ -74,16 +74,11 @@ More than 4 weeks
 ถ้ายังไม่เข้าใจโจทย์ทั้งหมด ให้เขียนสิ่งที่เข้าใจในตอนนี้ ความเข้าใจอาจยังไม่ครบหรืออาจผิดได้ แต่ต้องพยายามอธิบายอย่างจริงใจ
 
 ```text
-รับวัตถุดิบเข้ามาเรื่อย ๆ จนเจอ Cook รับรสชาติจนเจอ End
-
-ตรวจว่าวัตถุดิบครบตามกำหนดหรือไม่
-ถ้าไม่อยู่ในสูตร This is not Pad Thai!!!
-
-ถ้าวัตถุดิบไม่ครบ This is bad!
-
-ถ้าวัตถุดิบครบตรวจรสชาติว่ามี Sweet, Sour และ Salty หรือไม่
-ถ้าครบทั้งวัตถุดิบ, รสชาติ : print  Delicious!
-ถ้าวัตถุดิบครบแต่รสชาติไม่ครบ Not Bad...
+รับค่า N,S
+S คือเริ่มจากคน S
+N คือจำนวนนักเรียน
+constraint : ถ้าส่งให้คนซ้ำ หรือ คน 0 จะหยุด
+output: จำนวนคนที่ได้รับ
 ```
 
 ---
@@ -103,13 +98,14 @@ More than 4 weeks
 สามารถเขียนเป็น pseudocode, flowchart idea หรือขั้นตอนความคิดได้
 
 ```text
-รับวัตถุดิบจนเจอ Cook
-เก็บวัตถุดิบที่รับมา
-ตรวจว่ามีวัตถุดิบที่ไม่อยู่ในสูตรหรือไม่
-ตรวจว่าวัตถุดิบครบหรือไม่
-จากนั้นรับรสชาติจนเจอ End
-ตรวจว่ามี Sweet, Sour และ Salty ครบหรือไม่
-แล้วแสดงข้อความตามเงื่อนไขของโจทย์
+รับ N,S
+สร้าง list สำหรับเก็บค่านักเรียนที่จะรับ inputจาก for loop N
+กำหนดคนปัจจุบันคือ S เพราะเริ่มที่ S
+สร้างlist found โดยนำ S appendเข้าก่อน เพราะเริ่ม = เจอเเล้ว
+while True
+คนถัดไป คือ คนที่ S - 1 เพราะใน list index เริ่มที่ 0 
+ถ้าลงคนถัดไปซ้ำหรือเจอ 0 จะหยุดเเล้ว print len(found)
+ถ้าไม่ซ้ำ จะ append เข้า found
 ```
 
 ---
@@ -149,31 +145,27 @@ More than 4 weeks
 ทำไมเลือก case นี้:
 
 ```text
-ถ้าวัตถุดิบไม่ครบ
+หาก input เป็น 0
 ```
 
 Input:
 
 ```text
-Pad Thai Sauce
-Tofu
-Cook
-Sweet
-Sour
-Salty
-End
+2 0
+1
+2
 ```
 
 Expected output:
 
 ```text
-This is bad!
+2
 ```
 
 Actual output:
 
 ```text
-This is bad!
+2
 ```
 
 Result:
@@ -187,32 +179,26 @@ Pass
 ทำไมเลือก case นี้:
 
 ```text
-ถ้ามีมีวัตถุดิบที่ไม่ได้กำหนด
+หากมีตัวเดียว
 ```
 
 Input:
 
 ```text
-Pad Thai Sauce
-Tofu
-Chicken
-Cook
-Sweet
-Sour
-Salty
-End
+1 0
+1
 ```
 
 Expected output:
 
 ```text
-This is not Pad Thai!!!
+2
 ```
 
 Actual output:
 
 ```text
-This is not Pad Thai!!!
+2
 ```
 
 Result:
@@ -232,34 +218,22 @@ Pass
 Input:
 
 ```text
-Pad Thai Sauce
-Tofu
-Pickle Turnip
-Shrimp
-Bean Sprouts
-Noodle
-Chives
-Lime
-Egg
-Oil
-Peanuts
-Cook
-Sweet
-Sour
-Salty
-End
+3 1
+1
+2
+3
 ```
 
 Expected output:
 
 ```text
-Delicious!
+1
 ```
 
 Actual output:
 
 ```text
-Delicious!
+1
 ```
 
 Result:
